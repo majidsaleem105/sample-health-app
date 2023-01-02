@@ -31,21 +31,49 @@
 import Foundation
 import UIKit
 import CareKit
+import CareKitUI
 import CareKitStore
 import SwiftUI
+//import CareKitTests_iOS
+
+var lastCareViewController = OCKListViewController()
 
 class CareViewController: OCKDailyPageViewController {
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem =
-            UIBarButtonItem(title: "Care Team", style: .plain, target: self,
+            UIBarButtonItem(title: "+ Upload Video", style: .plain, target: self,
                             action: #selector(presentContactsListViewController))
+        
+        self.navigationController?.navigationBar.backgroundColor = UIColor.systemGroupedBackground
+        self.view.backgroundColor = UIColor.systemGroupedBackground
+        
+        if #available(iOS 13.0, *) {
+            
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            let statusBarHeight: CGFloat = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0 //app.statusBarFrame.size.height
+            
+            let statusbarView = UIView()
+            statusbarView.backgroundColor = UIColor.systemGroupedBackground
+            view.addSubview(statusbarView)
+          
+            statusbarView.translatesAutoresizingMaskIntoConstraints = false
+            statusbarView.heightAnchor
+                .constraint(equalToConstant: statusBarHeight).isActive = true
+            statusbarView.widthAnchor
+                .constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
+            statusbarView.topAnchor
+                .constraint(equalTo: view.topAnchor).isActive = true
+            statusbarView.centerXAnchor
+                .constraint(equalTo: view.centerXAnchor).isActive = true
+          
+        }
     }
-
+    
     @objc private func presentContactsListViewController() {
         let viewController = OCKContactsListViewController(storeManager: storeManager)
-        viewController.title = "Care Team"
+        viewController.title = "+ Upload Video"
         viewController.isModalInPresentation = true
         viewController.navigationItem.rightBarButtonItem =
             UIBarButtonItem(title: "Done", style: .plain, target: self,
@@ -58,17 +86,19 @@ class CareViewController: OCKDailyPageViewController {
     @objc private func dismissContactsListViewController() {
         dismiss(animated: true, completion: nil)
     }
-
+    
+    
     // This will be called each time the selected date changes.
     // Use this as an opportunity to rebuild the content shown to the user.
     override func dailyPageViewController(_ dailyPageViewController: OCKDailyPageViewController,
                                           prepare listViewController: OCKListViewController, for date: Date) {
 
-        let identifiers = ["doxylamine", "nausea", "kegels", "steps", "heartRate"]
+        lastCareViewController = listViewController
+        let identifiers = ["doxylamine", "nausea", "kegels", "steps", "heartRate", "nsh", "homeass"]
         var query = OCKTaskQuery(for: date)
         query.ids = identifiers
         query.excludesTasksWithNoEvents = true
-
+        
         storeManager.store.fetchAnyTasks(query: query, callbackQueue: .main) { result in
             switch result {
             case .failure(let error): print("Error: \(error)")
@@ -84,7 +114,7 @@ class CareViewController: OCKDailyPageViewController {
                     tipView.headerView.titleLabel.text = tipTitle
                     tipView.headerView.detailLabel.text = tipText
                     tipView.imageView.image = UIImage(named: "exercise.jpg")
-                    listViewController.appendView(tipView, animated: false)
+//                    listViewController.appendView(tipView, animated: false)
                 }
 
                 if #available(iOS 14, *), let walkTask = tasks.first(where: { $0.id == "steps" }) {
@@ -95,82 +125,174 @@ class CareViewController: OCKDailyPageViewController {
                         storeManager: self.storeManager)
                         .padding([.vertical], 10)
 
-                    listViewController.appendViewController(view.formattedHostingController(), animated: false)
+//                    listViewController.appendViewController(view.formattedHostingController(), animated: false)
+                    
+                    let lblView = LabeledValueTaskView(
+                        task: walkTask,
+                        eventQuery: .init(for: Date()),
+                        storeManager: self.storeManager
+                    ) .padding([.vertical], 10)
+                    
+                    listViewController.appendViewController(lblView.formattedHostingController(), animated: true)
+                    
                 }
-
-                // Since the kegel task is only scheduled every other day, there will be cases
-                // where it is not contained in the tasks array returned from the query.
-                if let kegelsTask = tasks.first(where: { $0.id == "kegels" }) {
-                    let kegelsCard = OCKSimpleTaskViewController(task: kegelsTask, eventQuery: .init(for: date),
-                                                                 storeManager: self.storeManager)
-                    listViewController.appendViewController(kegelsCard, animated: false)
+                
+                listViewController.appendViewController(HomeScreenTabs().formattedHostingController(), animated: true)
+                
+                if( HomeScreenTabs() .selectedTab == 1 )
+                {
+                    print("In tab: ", HomeScreenTabs() .selectedTab )
+                    let labelV = OCKLabel(textStyle: .headline, weight: .thin)
+                    labelV.text = "Optional Tasks"
+                    listViewController.appendView(labelV, animated: true)
                 }
-
-                // Create a card for the doxylamine task if there are events for it on this day.
-                if let doxylamineTask = tasks.first(where: { $0.id == "doxylamine" }) {
-
-                    let doxylamineCard = OCKChecklistTaskViewController(
-                        task: doxylamineTask,
-                        eventQuery: .init(for: date),
-                        storeManager: self.storeManager)
-
-                    listViewController.appendViewController(doxylamineCard, animated: false)
+                else if( HomeScreenTabs() .selectedTab == 2 )
+                {
+                    print("In tab: ", HomeScreenTabs() .selectedTab )
+                    let labelV = OCKLabel(textStyle: .headline, weight: .thin)
+                    labelV.text = "Surveys Tasks"
+                    listViewController.appendView(labelV, animated: true)
                 }
+                else if( HomeScreenTabs() .selectedTab == 0 )
+                {
+                    print("In tab: ", HomeScreenTabs() .selectedTab )
+                    let labelV = OCKLabel(textStyle: .headline, weight: .thin)
+                    labelV.text = "Daily Tasks"
+                    listViewController.appendView(labelV, animated: true)
+                
+                    // Since the kegel task is only scheduled every other day, there will be cases
+                    // where it is not contained in the tasks array returned from the query.
+                    if let kegelsTask = tasks.first(where: { $0.id == "kegels" }) {
+    //                    let kegelsCard = OCKSimpleTaskViewController(task: kegelsTask, eventQuery: .init(for: date),
+    //                                                                 storeManager: self.storeManager)
+                        
+//                        let kegelsCard = OCKGridTaskViewController(task: kegelsTask, eventQuery: .init(for: date), storeManager: self.storeManager)
+                        
+                        let kegelsCard = ActivitiesViewController(viewSynchronizer: ActivitiesViewSynchronizer(), task: kegelsTask, eventQuery: .init(for: date), storeManager: self.storeManager)
 
-                // Create a card for the nausea task if there are events for it on this day.
-                // Its OCKSchedule was defined to have daily events, so this task should be
-                // found in `tasks` every day after the task start date.
-                if let nauseaTask = tasks.first(where: { $0.id == "nausea" }) {
-
-                    // dynamic gradient colors
-                    let nauseaGradientStart = UIColor { traitCollection -> UIColor in
-                        return traitCollection.userInterfaceStyle == .light ? #colorLiteral(red: 0.9960784314, green: 0.3725490196, blue: 0.368627451, alpha: 1) : #colorLiteral(red: 0.8627432641, green: 0.2630574384, blue: 0.2592858295, alpha: 1)
+//                        kegelsCard.taskView.headerView.detailLabel.isHidden = true
+                        listViewController.appendViewController(kegelsCard, animated: false)
                     }
-                    let nauseaGradientEnd = UIColor { traitCollection -> UIColor in
-                        return traitCollection.userInterfaceStyle == .light ? #colorLiteral(red: 0.9960784314, green: 0.4732026144, blue: 0.368627451, alpha: 1) : #colorLiteral(red: 0.8627432641, green: 0.3598620686, blue: 0.2592858295, alpha: 1)
+
+                    // Create a card for the doxylamine task if there are events for it on this day.
+                    if let doxylamineTask = tasks.first(where: { $0.id == "doxylamine" }) {
+
+    //                    let doxylamineCard = OCKChecklistTaskViewController(
+    //                        task: doxylamineTask,
+    //                        eventQuery: .init(for: date),
+    //                        storeManager: self.storeManager)
+                        
+//                        let doxylamineCard = OCKGridTaskViewController(
+//                            task: doxylamineTask,
+//                            eventQuery: .init(for: date),
+//                            storeManager: self.storeManager)
+                        
+                        let doxylamineCard = ActivitiesViewController(viewSynchronizer: ActivitiesViewSynchronizer(), task: doxylamineTask, eventQuery: .init(for: date), storeManager: self.storeManager)
+//                        doxylamineCard.taskView.headerView.detailLabel.isHidden = false
+                        listViewController.appendViewController(doxylamineCard, animated: false)
                     }
 
-                    // Create a plot comparing nausea to medication adherence.
-                    let nauseaDataSeries = OCKDataSeriesConfiguration(
-                        taskID: "nausea",
-                        legendTitle: "Nausea",
-                        gradientStartColor: nauseaGradientStart,
-                        gradientEndColor: nauseaGradientEnd,
-                        markerSize: 10,
-                        eventAggregator: OCKEventAggregator.countOutcomeValues)
+                    // Create a card for the nausea task if there are events for it on this day.
+                    // Its OCKSchedule was defined to have daily events, so this task should be
+                    // found in `tasks` every day after the task start date.
+                    if let nauseaTask = tasks.first(where: { $0.id == "nausea" }) {
 
-                    let doxylamineDataSeries = OCKDataSeriesConfiguration(
-                        taskID: "doxylamine",
-                        legendTitle: "Doxylamine",
-                        gradientStartColor: .systemGray2,
-                        gradientEndColor: .systemGray,
-                        markerSize: 10,
-                        eventAggregator: OCKEventAggregator.countOutcomeValues)
+                        // dynamic gradient colors
+                        let nauseaGradientStart = UIColor { traitCollection -> UIColor in
+                            return traitCollection.userInterfaceStyle == .light ? #colorLiteral(red: 0.9960784314, green: 0.3725490196, blue: 0.368627451, alpha: 1) : #colorLiteral(red: 0.8627432641, green: 0.2630574384, blue: 0.2592858295, alpha: 1)
+                        }
+                        let nauseaGradientEnd = UIColor { traitCollection -> UIColor in
+                            return traitCollection.userInterfaceStyle == .light ? #colorLiteral(red: 0.9960784314, green: 0.4732026144, blue: 0.368627451, alpha: 1) : #colorLiteral(red: 0.8627432641, green: 0.3598620686, blue: 0.2592858295, alpha: 1)
+                        }
 
-                    let insightsCard = OCKCartesianChartViewController(
-                        plotType: .bar,
-                        selectedDate: date,
-                        configurations: [nauseaDataSeries, doxylamineDataSeries],
-                        storeManager: self.storeManager)
+                        // Create a plot comparing nausea to medication adherence.
+                        let nauseaDataSeries = OCKDataSeriesConfiguration(
+                            taskID: "nausea",
+                            legendTitle: "Nausea",
+                            gradientStartColor: nauseaGradientStart,
+                            gradientEndColor: nauseaGradientEnd,
+                            markerSize: 10,
+                            eventAggregator: OCKEventAggregator.countOutcomeValues)
 
-                    insightsCard.chartView.headerView.titleLabel.text = "Nausea & Doxylamine Intake"
-                    insightsCard.chartView.headerView.detailLabel.text = "This Week"
-                    insightsCard.chartView.headerView.accessibilityLabel = "Nausea & Doxylamine Intake, This Week"
-                    listViewController.appendViewController(insightsCard, animated: false)
+                        let doxylamineDataSeries = OCKDataSeriesConfiguration(
+                            taskID: "doxylamine",
+                            legendTitle: "Doxylamine",
+                            gradientStartColor: .systemGray2,
+                            gradientEndColor: .systemGray,
+                            markerSize: 10,
+                            eventAggregator: OCKEventAggregator.countOutcomeValues)
 
-                    // Also create a card that displays a single event.
-                    // The event query passed into the initializer specifies that only
-                    // today's log entries should be displayed by this log task view controller.
-                    let nauseaCard = OCKButtonLogTaskViewController(task: nauseaTask, eventQuery: .init(for: date),
-                                                                    storeManager: self.storeManager)
-                    listViewController.appendViewController(nauseaCard, animated: false)
+                        let insightsCard = OCKCartesianChartViewController(
+                            plotType: .bar,
+                            selectedDate: date,
+                            configurations: [nauseaDataSeries, doxylamineDataSeries],
+                            storeManager: self.storeManager)
+
+                        insightsCard.chartView.headerView.titleLabel.text = "Nausea & Doxylamine Intake"
+                        insightsCard.chartView.headerView.detailLabel.text = "This Week"
+                        insightsCard.chartView.headerView.accessibilityLabel = "Nausea & Doxylamine Intake, This Week"
+                        
+    //                    listViewController.appendViewController(insightsCard, animated: false)
+                        
+                        var labelVv = OCKLabel(textStyle: .headline, weight: .thin)
+                        labelVv.text = "NAVIGATOR"
+                        listViewController.appendView(labelVv, animated: true)
+                        
+                        // Also create a card that displays a single event.
+                        // The event query passed into the initializer specifies that only
+                        // today's log entries should be displayed by this log task view controller.
+                        let nauseaCard = OCKButtonLogTaskViewController(task: nauseaTask, eventQuery: .init(for: date),
+                                                                        storeManager: self.storeManager)
+                        
+                        listViewController.appendViewController(nauseaCard, animated: false)
+                        
+                        labelVv = OCKLabel(textStyle: .headline, weight: .semibold)
+                        labelVv.text = "Optionals"
+                        listViewController.appendView(labelVv, animated: true)
+                        
+                        // Also create a card that displays a single event.
+                        // The event query passed into the initializer specifies that only
+                        // today's log entries should be displayed by this log task view controller.
+                        let nauseaCardG = OCKGridTaskViewController(task: nauseaTask, eventQuery: .init(for: date),
+                                                                        storeManager: self.storeManager)
+                        
+                        listViewController.appendViewController(nauseaCardG, animated: false)
+                        
+                        labelVv = OCKLabel(textStyle: .headline, weight: .semibold)
+                        labelVv.text = "Surveys"
+                        listViewController.appendView(labelVv, animated: true)
+                        
+                        if let SimpleS = tasks.first(where: { $0.id == "nsh" }) {
+                            
+//                            let simplesCard = OCKSimpleTaskViewController(taskID: SimpleS.id, eventQuery: .init(for: date), storeManager:self.storeManager)
+                            
+                            let simplesCard = OCKSimpleTaskViewController(task: SimpleS, eventQuery: .init(for: date),
+                                                                         storeManager: self.storeManager)
+
+                            simplesCard.taskView.headerView.detailLabel.isHidden = true
+                            listViewController.appendViewController(simplesCard, animated: false)
+                        }
+                        
+                        if let SimpleS = tasks.first(where: { $0.id == "homeass" }) {
+                            
+//                            let simplesCard = OCKSimpleTaskViewController(taskID: SimpleS.id, eventQuery: .init(for: date), storeManager:self.storeManager)
+                            
+                            let simplesCard = OCKSimpleTaskViewController(task: SimpleS, eventQuery: .init(for: date),
+                                                                         storeManager: self.storeManager)
+
+                            simplesCard.taskView.headerView.detailLabel.isHidden = true
+                            listViewController.appendViewController(simplesCard, animated: false)
+                        }
+                        
+                    }   //  End of if( HomeScreenTabs() .selectedTab == 0 )
+                    
                 }
             }
         }
     }
 }
 
-private extension View {
+extension View {
     func formattedHostingController() -> UIHostingController<Self> {
         let viewController = UIHostingController(rootView: self)
         viewController.view.backgroundColor = .clear

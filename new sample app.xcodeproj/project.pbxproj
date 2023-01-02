@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA228A13276B5E4900A8562B /* HomeSegmentsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA228A12276B5E4900A8562B /* HomeSegmentsControl.swift */; };
+		FA228A22276B688900A8562B /* SomeFunctions.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA228A21276B688800A8562B /* SomeFunctions.swift.swift */; };
+		FA91A8B52770CA2900328DFF /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA91A8B42770CA2900328DFF /* General.swift */; };
+		FAB205612773485D0062B3A4 /* ActivityPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB205602773485D0062B3A4 /* ActivityPerformance.swift */; };
+		FAE5A4D6276CAC8A00489EE7 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5A4D5276CAC8A00489EE7 /* ActivitiesViewController.swift */; };
+		FAE5A4EE276CBF2300489EE7 /* Environment+StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5A4ED276CBF2300489EE7 /* Environment+StoreManager.swift */; };
 		FAF98BAD276778480075FA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF98BAC276778480075FA78 /* AppDelegate.swift */; };
 		FAF98BAF276778480075FA78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF98BAE276778480075FA78 /* SceneDelegate.swift */; };
 		FAF98BB1276778480075FA78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF98BB0276778480075FA78 /* ViewController.swift */; };
@@ -16,6 +22,19 @@
 		FAF98BC42767784A0075FA78 /* new_sample_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF98BC32767784A0075FA78 /* new_sample_appTests.swift */; };
 		FAF98BCE2767784A0075FA78 /* new_sample_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF98BCD2767784A0075FA78 /* new_sample_appUITests.swift */; };
 		FAF98BD02767784A0075FA78 /* new_sample_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF98BCF2767784A0075FA78 /* new_sample_appUITestsLaunchTests.swift */; };
+		FAF98C312767793F0075FA78 /* CareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF98C2F2767793F0075FA78 /* CareViewController.swift */; };
+		FAF98C322767793F0075FA78 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF98C302767793F0075FA78 /* TipView.swift */; };
+		FAF98C352767795E0075FA78 /* Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF98C342767795E0075FA78 /* Bridging-Header.m */; };
+		FAF98C39276779F00075FA78 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF98C38276779F00075FA78 /* HealthKit.framework */; };
+		FAF98C3A27677A0E0075FA78 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF98C202767789F0075FA78 /* CareKit.framework */; platformFilter = ios; };
+		FAF98C3B27677A0E0075FA78 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAF98C202767789F0075FA78 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAF98C3D27677A130075FA78 /* CareKitStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF98C07276778930075FA78 /* CareKitStore.framework */; platformFilter = ios; };
+		FAF98C3E27677A130075FA78 /* CareKitStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAF98C07276778930075FA78 /* CareKitStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAF98C3F27677A1A0075FA78 /* CareKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF98C14276778990075FA78 /* CareKitUI.framework */; platformFilter = ios; };
+		FAF98C4027677A1A0075FA78 /* CareKitUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAF98C14276778990075FA78 /* CareKitUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAF98C4127677A260075FA78 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF98C2C276778AE0075FA78 /* ResearchKit.framework */; platformFilter = ios; };
+		FAF98C4227677A260075FA78 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAF98C2C276778AE0075FA78 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAF98C452768784B0075FA78 /* MySimpleTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF98C442768784B0075FA78 /* MySimpleTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +52,109 @@
 			remoteGlobalIDString = FAF98BA8276778480075FA78;
 			remoteInfo = "new sample app";
 		};
+		FAF98C06276778930075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C00276778930075FA78 /* CareKitStore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E784B8F82232EED600736CA5;
+			remoteInfo = "CareKitStore iOS";
+		};
+		FAF98C08276778930075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C00276778930075FA78 /* CareKitStore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 515862D423A9C5BA00630AB5;
+			remoteInfo = "CareKitStore Watch";
+		};
+		FAF98C0A276778930075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C00276778930075FA78 /* CareKitStore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E784B9012232EED600736CA5;
+			remoteInfo = "CareKitStoreTests iOS";
+		};
+		FAF98C13276778990075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C0C276778980075FA78 /* CareKitUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5174225B224185290054E97C;
+			remoteInfo = "CareKitUI iOS";
+		};
+		FAF98C15276778990075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C0C276778980075FA78 /* CareKitUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 51F9F11A23A9B8F00087C900;
+			remoteInfo = "CareKitUI Watch";
+		};
+		FAF98C17276778990075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C0C276778980075FA78 /* CareKitUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 512B012E22C2F82900ABCB1D;
+			remoteInfo = "CareKitUITests iOS";
+		};
+		FAF98C1F2767789F0075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C192767789F0075FA78 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8605A5BA1C4F04EC00DD65FF;
+			remoteInfo = "CareKit iOS";
+		};
+		FAF98C212767789F0075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C192767789F0075FA78 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 51F9F17323A9C1A50087C900;
+			remoteInfo = "CareKit Watch";
+		};
+		FAF98C232767789F0075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C192767789F0075FA78 /* CareKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5196C7F9226F8F8F00F1C2A2;
+			remoteInfo = "CareKitTests iOS";
+		};
+		FAF98C2B276778AE0075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C25276778AE0075FA78 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		FAF98C2D276778AE0075FA78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAF98C25276778AE0075FA78 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FAF98C3C27677A0E0075FA78 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FAF98C3E27677A130075FA78 /* CareKitStore.framework in Embed Frameworks */,
+				FAF98C3B27677A0E0075FA78 /* CareKit.framework in Embed Frameworks */,
+				FAF98C4227677A260075FA78 /* ResearchKit.framework in Embed Frameworks */,
+				FAF98C4027677A1A0075FA78 /* CareKitUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		FA228A12276B5E4900A8562B /* HomeSegmentsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSegmentsControl.swift; sourceTree = "<group>"; };
+		FA228A21276B688800A8562B /* SomeFunctions.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeFunctions.swift.swift; sourceTree = "<group>"; };
+		FA91A8B42770CA2900328DFF /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
+		FAB205602773485D0062B3A4 /* ActivityPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPerformance.swift; sourceTree = "<group>"; };
+		FAE5A4D5276CAC8A00489EE7 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
+		FAE5A4ED276CBF2300489EE7 /* Environment+StoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Environment+StoreManager.swift"; sourceTree = "<group>"; };
 		FAF98BA9276778480075FA78 /* new sample app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "new sample app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF98BAC276778480075FA78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF98BAE276778480075FA78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +168,17 @@
 		FAF98BC92767784A0075FA78 /* new sample appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "new sample appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF98BCD2767784A0075FA78 /* new_sample_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = new_sample_appUITests.swift; sourceTree = "<group>"; };
 		FAF98BCF2767784A0075FA78 /* new_sample_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = new_sample_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FAF98C00276778930075FA78 /* CareKitStore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitStore.xcodeproj; path = ../CareKit/CareKitStore/CareKitStore.xcodeproj; sourceTree = "<group>"; };
+		FAF98C0C276778980075FA78 /* CareKitUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKitUI.xcodeproj; path = ../CareKit/CareKitUI/CareKitUI.xcodeproj; sourceTree = "<group>"; };
+		FAF98C192767789F0075FA78 /* CareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CareKit.xcodeproj; path = ../CareKit/CareKit/CareKit.xcodeproj; sourceTree = "<group>"; };
+		FAF98C25276778AE0075FA78 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
+		FAF98C2F2767793F0075FA78 /* CareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareViewController.swift; sourceTree = "<group>"; };
+		FAF98C302767793F0075FA78 /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
+		FAF98C332767795E0075FA78 /* new sample app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "new sample app-Bridging-Header.h"; sourceTree = "<group>"; };
+		FAF98C342767795E0075FA78 /* Bridging-Header.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Bridging-Header.m"; sourceTree = "<group>"; };
+		FAF98C36276779F00075FA78 /* new sample app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "new sample app.entitlements"; sourceTree = "<group>"; };
+		FAF98C38276779F00075FA78 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		FAF98C442768784B0075FA78 /* MySimpleTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySimpleTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +186,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF98C3F27677A1A0075FA78 /* CareKitUI.framework in Frameworks */,
+				FAF98C3D27677A130075FA78 /* CareKitStore.framework in Frameworks */,
+				FAF98C3A27677A0E0075FA78 /* CareKit.framework in Frameworks */,
+				FAF98C39276779F00075FA78 /* HealthKit.framework in Frameworks */,
+				FAF98C4127677A260075FA78 /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,13 +211,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA228A20276B686E00A8562B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FA228A21276B688800A8562B /* SomeFunctions.swift.swift */,
+				FA91A8B42770CA2900328DFF /* General.swift */,
+				FAB205602773485D0062B3A4 /* ActivityPerformance.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		FA301DBE27747193000C56D6 /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Audios;
+			sourceTree = "<group>";
+		};
+		FAAA96862779ED77009A8FC8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FAE5A4C8276CAC4F00489EE7 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				FAE5A4D5276CAC8A00489EE7 /* ActivitiesViewController.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		FAE5A4EC276CBED800489EE7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAE5A4ED276CBF2300489EE7 /* Environment+StoreManager.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FAF98BA0276778480075FA78 = {
 			isa = PBXGroup;
 			children = (
+				FAF98C25276778AE0075FA78 /* ResearchKit.xcodeproj */,
+				FAF98C192767789F0075FA78 /* CareKit.xcodeproj */,
+				FAF98C0C276778980075FA78 /* CareKitUI.xcodeproj */,
+				FAF98C00276778930075FA78 /* CareKitStore.xcodeproj */,
 				FAF98BAB276778480075FA78 /* new sample app */,
 				FAF98BC22767784A0075FA78 /* new sample appTests */,
 				FAF98BCC2767784A0075FA78 /* new sample appUITests */,
 				FAF98BAA276778480075FA78 /* Products */,
+				FAF98C332767795E0075FA78 /* new sample app-Bridging-Header.h */,
+				FAF98C37276779F00075FA78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +280,16 @@
 		FAF98BAB276778480075FA78 /* new sample app */ = {
 			isa = PBXGroup;
 			children = (
+				FAAA96862779ED77009A8FC8 /* Resources */,
+				FA301DBE27747193000C56D6 /* Audios */,
+				FAE5A4EC276CBED800489EE7 /* Extensions */,
+				FAE5A4C8276CAC4F00489EE7 /* Activity */,
+				FA228A20276B686E00A8562B /* Helper */,
+				FAF98C432768781C0075FA78 /* Views */,
+				FAF98C36276779F00075FA78 /* new sample app.entitlements */,
+				FAF98C342767795E0075FA78 /* Bridging-Header.m */,
+				FAF98C2F2767793F0075FA78 /* CareViewController.swift */,
+				FAF98C302767793F0075FA78 /* TipView.swift */,
 				FAF98BAC276778480075FA78 /* AppDelegate.swift */,
 				FAF98BAE276778480075FA78 /* SceneDelegate.swift */,
 				FAF98BB0276778480075FA78 /* ViewController.swift */,
@@ -127,6 +318,62 @@
 			path = "new sample appUITests";
 			sourceTree = "<group>";
 		};
+		FAF98C01276778930075FA78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAF98C07276778930075FA78 /* CareKitStore.framework */,
+				FAF98C09276778930075FA78 /* CareKitStore.framework */,
+				FAF98C0B276778930075FA78 /* CareKitStoreTests iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAF98C0D276778980075FA78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAF98C14276778990075FA78 /* CareKitUI.framework */,
+				FAF98C16276778990075FA78 /* CareKitUI.framework */,
+				FAF98C18276778990075FA78 /* CareKitUITests iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAF98C1A2767789F0075FA78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAF98C202767789F0075FA78 /* CareKit.framework */,
+				FAF98C222767789F0075FA78 /* CareKit.framework */,
+				FAF98C242767789F0075FA78 /* CareKitTests iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAF98C26276778AE0075FA78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAF98C2C276778AE0075FA78 /* ResearchKit.framework */,
+				FAF98C2E276778AE0075FA78 /* ResearchKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAF98C37276779F00075FA78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAF98C38276779F00075FA78 /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAF98C432768781C0075FA78 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAF98C442768784B0075FA78 /* MySimpleTask.swift */,
+				FA228A12276B5E4900A8562B /* HomeSegmentsControl.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +384,7 @@
 				FAF98BA5276778480075FA78 /* Sources */,
 				FAF98BA6276778480075FA78 /* Frameworks */,
 				FAF98BA7276778480075FA78 /* Resources */,
+				FAF98C3C27677A0E0075FA78 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,6 +443,7 @@
 				TargetAttributes = {
 					FAF98BA8276778480075FA78 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
 					};
 					FAF98BBE2767784A0075FA78 = {
 						CreatedOnToolsVersion = 13.1;
@@ -217,6 +466,24 @@
 			mainGroup = FAF98BA0276778480075FA78;
 			productRefGroup = FAF98BAA276778480075FA78 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FAF98C1A2767789F0075FA78 /* Products */;
+					ProjectRef = FAF98C192767789F0075FA78 /* CareKit.xcodeproj */;
+				},
+				{
+					ProductGroup = FAF98C01276778930075FA78 /* Products */;
+					ProjectRef = FAF98C00276778930075FA78 /* CareKitStore.xcodeproj */;
+				},
+				{
+					ProductGroup = FAF98C0D276778980075FA78 /* Products */;
+					ProjectRef = FAF98C0C276778980075FA78 /* CareKitUI.xcodeproj */;
+				},
+				{
+					ProductGroup = FAF98C26276778AE0075FA78 /* Products */;
+					ProjectRef = FAF98C25276778AE0075FA78 /* ResearchKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FAF98BA8276778480075FA78 /* new sample app */,
@@ -225,6 +492,86 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FAF98C07276778930075FA78 /* CareKitStore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKitStore.framework;
+			remoteRef = FAF98C06276778930075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C09276778930075FA78 /* CareKitStore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKitStore.framework;
+			remoteRef = FAF98C08276778930075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C0B276778930075FA78 /* CareKitStoreTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CareKitStoreTests iOS.xctest";
+			remoteRef = FAF98C0A276778930075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C14276778990075FA78 /* CareKitUI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKitUI.framework;
+			remoteRef = FAF98C13276778990075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C16276778990075FA78 /* CareKitUI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKitUI.framework;
+			remoteRef = FAF98C15276778990075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C18276778990075FA78 /* CareKitUITests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CareKitUITests iOS.xctest";
+			remoteRef = FAF98C17276778990075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C202767789F0075FA78 /* CareKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKit.framework;
+			remoteRef = FAF98C1F2767789F0075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C222767789F0075FA78 /* CareKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKit.framework;
+			remoteRef = FAF98C212767789F0075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C242767789F0075FA78 /* CareKitTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CareKitTests iOS.xctest";
+			remoteRef = FAF98C232767789F0075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C2C276778AE0075FA78 /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = FAF98C2B276778AE0075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAF98C2E276778AE0075FA78 /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = FAF98C2D276778AE0075FA78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FAF98BA7276778480075FA78 /* Resources */ = {
@@ -258,9 +605,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA228A22276B688900A8562B /* SomeFunctions.swift.swift in Sources */,
+				FAF98C452768784B0075FA78 /* MySimpleTask.swift in Sources */,
+				FAB205612773485D0062B3A4 /* ActivityPerformance.swift in Sources */,
 				FAF98BB1276778480075FA78 /* ViewController.swift in Sources */,
+				FAF98C312767793F0075FA78 /* CareViewController.swift in Sources */,
+				FAF98C352767795E0075FA78 /* Bridging-Header.m in Sources */,
+				FA228A13276B5E4900A8562B /* HomeSegmentsControl.swift in Sources */,
+				FA91A8B52770CA2900328DFF /* General.swift in Sources */,
 				FAF98BAD276778480075FA78 /* AppDelegate.swift in Sources */,
+				FAE5A4D6276CAC8A00489EE7 /* ActivitiesViewController.swift in Sources */,
 				FAF98BAF276778480075FA78 /* SceneDelegate.swift in Sources */,
+				FAF98C322767793F0075FA78 /* TipView.swift in Sources */,
+				FAE5A4EE276CBF2300489EE7 /* Environment+StoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +708,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -370,7 +728,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -412,6 +770,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -437,24 +796,35 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "new sample app/new sample app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.8;
 				DEVELOPMENT_TEAM = N946FXMKYG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "new sample app/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Health App";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "CareKit sample app would like to read clinical records from HealthKit";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "CareKit sample app would like to read from HealthKit";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "CareKit would like to write to your HealthKit data!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.naveen.new-sample-app.new-sample-app";
+				MARKETING_VERSION = 4.9;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.naveen.new-catalog-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "new sample app-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -465,24 +835,33 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "new sample app/new sample app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.8;
 				DEVELOPMENT_TEAM = N946FXMKYG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "new sample app/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Health App";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "CareKit sample app would like to read clinical records from HealthKit";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "CareKit sample app would like to read from HealthKit";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "CareKit would like to write to your HealthKit data!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.naveen.new-sample-app.new-sample-app";
+				MARKETING_VERSION = 4.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.naveen.new-catalog-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "new sample app-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

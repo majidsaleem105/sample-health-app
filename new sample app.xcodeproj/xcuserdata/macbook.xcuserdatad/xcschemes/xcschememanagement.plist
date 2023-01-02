@@ -7,7 +7,25 @@
 		<key>new sample app.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>9</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>FAF98BA8276778480075FA78</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAF98BBE2767784A0075FA78</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAF98BC82767784A0075FA78</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
